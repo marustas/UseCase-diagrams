@@ -22,8 +22,8 @@ rectangle Booking {
         (Filter by price)--Manager
         Guest--(Filter by facilties)
         (Filter by facilties)--Manager
-        Guest--(Filter by number of rooms)
-        (Filter by number of rooms)--Manager
+        Guest--(Filter by star rating)
+        (Filter by star rating)--Manager
     }
     Guest -- (Book accomodation)
     (Book accomodation) -- Manager
