@@ -1,0 +1,8 @@
+	
+@startuml template
+skinparam actorStyle Hollow 
+:Пользователь: --> (Use)
+"Главный админ" as Admin
+"Использование приложения" as (Use)
+Admin --> (Управление приложением)
+@enduml
