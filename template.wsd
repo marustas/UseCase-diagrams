@@ -1,8 +1,35 @@
-	
-@startuml template
-skinparam actorStyle Hollow 
-:Пользователь: --> (Use)
-"Главный админ" as Admin
-"Использование приложения" as (Use)
-Admin --> (Управление приложением)
+@startuml Booking App
+skinparam packageStyle rectangle
+actor Guest
+actor Manager
+rectangle Booking {
+    rectangle Autentification {
+        Guest -- (Sign in)
+        (Sign in)--Manager
+        (Sign in).>(Verify user)
+        Guest -- (Sign up)
+        (Sign up)--Manager
+        (Sign up).>(Create account)
+    }
+    rectangle Duration {
+        Guest--(Set Check in)
+        (Set Check in)--Manager
+        Guest--(Set Check out)
+        (Set Check out)--Manager
+    }
+    rectangle Filter {
+        Guest--(Filter by price)
+        (Filter by price)--Manager
+        Guest--(Filter by facilties)
+        (Filter by facilties)--Manager
+        Guest--(Filter by number of rooms)
+        (Filter by number of rooms)--Manager
+    }
+    Guest -- (Book accomodation)
+    (Book accomodation) -- Manager
+    Guest -- (Cancel booking)
+    (Cancel booking) -- Manager
+    (Payment) <. (Book accomodation)
+    (Book accomodation) .> (Check availability)
+}
 @enduml
